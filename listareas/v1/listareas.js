@@ -1,6 +1,8 @@
 const inputs = document.querySelector(".ingresar input");
 const boton = document.querySelector(".ingresar button");
 const lista = document.querySelector(".lista");
+const full = document.querySelector("header span");
+
 let borrarIcn = String.fromCodePoint(0x1F5D1);
 let compartirIcn = String.fromCodePoint(0x2BAB);
 
@@ -19,6 +21,10 @@ inputs.addEventListener("keyup", function(event) {
 
 boton.onclick = ()=>{
     agregar();
+}
+
+full.onclick = ()=>{
+    toggleFullScreen();
 }
 
 function agregar(){
@@ -42,8 +48,43 @@ function agregar(){
     lista.insertBefore(li, lista.childNodes[0]);
     inputs.value = "";
     boton.classList.remove("active");
+    //inputs.focus();
 }
 
 function compartir(tarea){
-    alert(tarea.value);
+    var title = "";
+    const texto = tarea.querySelector("p").textContent;
+    if(tarea.querySelector("input").classList.contains("checked")){ //esto hay que arreglarlo
+        title = "Ya completé una tarea de mi lista";
+    }else{
+        title = "Tarea por completar de mi lista";
+    }
+
+    if (!("share" in navigator)) {
+        alert('Web Share API not supported.');
+        return;
+    }
+
+    navigator.share({
+        title: title,
+        text: texto,
+        url: document.URL
+    })
+    .then(
+        () => console.log('Compartido!')
+    )
+    .catch(
+        error => console.log('Error sharing:', error)
+    );
+
 }
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }

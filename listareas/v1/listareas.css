@@ -6,10 +6,28 @@
     color: black;
 }
 header{
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    margin: 30px auto;
+    justify-content: space-between;
+}
+h3{
     font-size: 30px;
     font-weight: 600;
     text-align: center;
     color: rgb(173, 173, 173);
+}
+header span{
+    height: 50px;
+    width: 50px;
+    color: white;
+    border: 1px solid rgb(102, 101, 101);
+    outline: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
 }
 body{
     width: 100%;
