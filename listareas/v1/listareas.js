@@ -5,6 +5,7 @@ const full = document.querySelector("header span");
 
 let borrarIcn = String.fromCodePoint(0x1F5D1);
 let compartirIcn = String.fromCodePoint(0x2BAB);
+let copiarIcn = String.fromCodePoint(0x1F4CE);
 
 inputs.addEventListener("keyup", function(event) {
     let valorIngresado = inputs.value;
@@ -33,6 +34,8 @@ function agregar(){
     var text = document.createElement("p");
     var but = document.createElement("span");
     var com = document.createElement("span");
+    var copy = document.createElement("span");
+
     text.appendChild(document.createTextNode(inputs.value));
     check.setAttribute("type","checkbox");
     but.appendChild(document.createTextNode(borrarIcn));
@@ -41,14 +44,23 @@ function agregar(){
     com.appendChild(document.createTextNode(compartirIcn));
     com.setAttribute("class", "compartir");
     com.onclick = function(){compartir(this.parentElement);};
+    copy.appendChild(document.createTextNode(copiarIcn));
+    copy.setAttribute("class", "copiar");
+    copy.onclick = function(){copiar(this.parentElement);};
     li.appendChild(check);
     li.appendChild(text);
+    li.appendChild(copy);
     li.appendChild(com);
     li.appendChild(but);
     lista.insertBefore(li, lista.childNodes[0]);
     inputs.value = "";
     boton.classList.remove("active");
     //inputs.focus();
+}
+
+function copiar(tarea){
+    texto = tarea.querySelector("p").textContent;
+    navigator.clipboard.writeText(texto);
 }
 
 function compartir(tarea){

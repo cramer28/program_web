@@ -69,11 +69,11 @@ body{
     color:rgba(155, 155, 155, 0.4);
 }
 .ingresar button{
-    margin: 5px;
+    
     width: 50px;
     height: 100% auto;
     margin-left: 5px;
-    border: 1px solid rgb(102, 101, 101);
+    border: 2px solid rgb(102, 101, 101);
     outline: none;
     background: none;
     cursor: pointer;
@@ -119,6 +119,26 @@ body{
     color: rgb(196, 196, 196);
     margin: 0;
     overflow-x: auto;
+}
+
+.copiar{
+    position: absolute;
+    right: 101px;
+    background: none;
+    width: 45px;
+    text-align: center;
+    color:  green;
+    border: 1px solid  green;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 30px;
+}
+
+.copiar:hover{
+    color: white;
+    background: rgb(57, 151, 57);
+    transition: all 0.3s ease;
 }
 
 .compartir{
