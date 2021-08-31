@@ -25,7 +25,13 @@ boton.onclick = ()=>{
 }
 
 full.onclick = ()=>{
-    toggleFullScreen();
+    if(document.fullscreenElement == null){
+        document.documentElement.requestFullscreen();
+        full.innerHTML = "🔙";
+    }else{
+        document.exitFullscreen();
+        full.innerHTML = "↕";
+    }
 }
 
 function agregar(){
