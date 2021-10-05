@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: rgba(34,34,34,1);
+    --color10: rgba(255,255,255,0.2);
+    --color50: rgba(255,255,255,0.5);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color: rgba(255,255,255,1);
+    --color10: rgba(34,34,34,0.1);
+    --color50: rgba(34,34,34,0.5);
+  }
+}
+
 /**{
     margin: 0;
     padding: 0;
@@ -23,13 +39,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0;
+  width: auto;
+  margin: 0 .5rem;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  background-color: #222222;
+  background-color: var(--color);
   height: 100vh;
 }
 
@@ -65,7 +82,7 @@ body main header {
 body main header h3 {
   font-size: 2.25rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
 }
 
 body main header span {
@@ -74,8 +91,8 @@ body main header span {
   width: 2rem;
   padding: 0.5rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--color50);
+  border: 1px solid var(--color50);
   cursor: pointer;
   font-size: 1.5rem;
   -webkit-transition: all 0.5s ease;
@@ -83,18 +100,18 @@ body main header span {
 }
 
 body main header span:hover {
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
+  background: var(--color50);
 }
 
 body main header span:hover {
-  color: #222222;
+  color: var(--color);
 }
 
 body main hr {
   margin-top: 1rem;
   margin-bottom: 0;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--color10);
   border-width: 2px;
 }
 
@@ -123,7 +140,7 @@ body main .ingresar {
           backdrop-filter: blur(0.25rem);
   -webkit-box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color10);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -133,26 +150,26 @@ body main .ingresar input {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
   background: none;
   border: none;
   outline: none;
 }
 
 body main .ingresar input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color10);
 }
 
 body main .ingresar input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color10);
 }
 
 body main .ingresar input::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color10);
 }
 
 body main .ingresar input::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--color10);
 }
 
 body main .ingresar button {
@@ -161,8 +178,8 @@ body main .ingresar button {
   width: 2rem;
   padding: 0.5rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--color50);
+  border: 1px solid var(--color50);
   cursor: pointer;
   font-size: 1.5rem;
   -webkit-transition: all 0.5s ease;
@@ -177,8 +194,8 @@ body main .ingresar button {
 }
 
 body main .ingresar button:hover {
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
+  background: var(--color50);
 }
 
 body main .ingresar button.active {
@@ -187,7 +204,7 @@ body main .ingresar button.active {
 }
 
 body main .ingresar:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--color50);
 }
 
 body main .lista {
@@ -217,11 +234,11 @@ body main .lista li {
   height: 3rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color10);
 }
 
 body main .lista li input {
-  accent-color: #222222;
+  accent-color: var(--color);
   -ms-flex-negative: 0;
       flex-shrink: 0;
   height: 1rem;
@@ -237,7 +254,7 @@ body main .lista li input:checked + p {
 
 body main .lista li p {
   max-width: 18.125rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
   font-size: 1.5rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -263,7 +280,7 @@ body main .lista li .copiar {
 }
 
 body main .lista li .copiar:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
   background: green;
 }
 
@@ -285,7 +302,7 @@ body main .lista li .compartir {
 }
 
 body main .lista li .compartir:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
   background: blue;
 }
 
@@ -306,6 +323,6 @@ body main .lista li .eliminar {
 }
 
 body main .lista li .eliminar:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color50);
   background: red;
 }

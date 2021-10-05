@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+$negro: rgba(34,34,34,1);
+$negro50: rgba(34,34,34,0.5);
+$negro10: rgba(34,34,34,0.1);
+$blanco: rgba(255,255,255,1);
+$blanco50:rgba(255,255,255,0.5);
+$blanco10: rgba(255,255,255,0.2);
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: rgba(34,34,34,1);
+        --color10: rgba(255,255,255,0.2);
+        --color50: rgba(255,255,255,0.5);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color: rgba(255,255,255,1);
+        --color10: rgba(34,34,34,0.1);
+        --color50: rgba(34,34,34,0.5);
+    }
+}
+
 @mixin bot ($color) {
     background: none;
     height: 2rem;
@@ -13,17 +36,10 @@
     transition: all 0.5s ease;
 
     &:hover{
-        color: $blanco50;
+        color: var(--color50);
         background: $color;
     }
 }
-
-$negro: rgba(34,34,34,1);
-$negro50: rgba(34,34,34,0.5);
-$negro10: rgba(34,34,34,0.1);
-$blanco: rgba(255,255,255,1);
-$blanco50:rgba(255,255,255,0.5);
-$blanco10: rgba(255,255,255,0.2);
 
 /**{
     margin: 0;
@@ -45,12 +61,13 @@ body{
     //justify-content: flex-start;
     align-items: center;
 
-    margin: 0;
+    width: auto;
+    margin: 0 .5rem;
     padding: 0;
     box-sizing: border-box;
     font-family:'Roboto', sans-serif;
     font-size: 16px;
-    background-color: $negro;
+    background-color: var(--color);
     height: 100vh;
 
     main{
@@ -74,15 +91,15 @@ body{
             h3{
                 font-size: 2.25rem;
                 text-align: center;
-                color: $blanco50;
+                color: var(--color50);
             }
         
             span{
 
-                @include bot($blanco50);
+                @include bot(var(--color50));
                 
                 &:hover{
-                    color: $negro;
+                    color: var(--color);
                 }
         
             }
@@ -92,7 +109,7 @@ body{
         hr{
             margin-top: 1rem;
             margin-bottom: 0;
-            border-color: $blanco10;
+            border-color: var(--color10);
             border-width: 2px;
         }
 
@@ -111,20 +128,20 @@ body{
             z-index: 2;
             backdrop-filter: blur(0.25rem);
             box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.25);
-            background: $blanco10;
+            background: var(--color10);
             transition: all 0.5s;
     
             input{
 
                 font-size: 1.5rem;
                 flex-grow: 1;
-                color:$blanco50;
+                color: var(--color50);
                 background: none;
                 border: none;
                 outline: none;
 
                 &::placeholder{
-                    color:$blanco10;
+                    color: var(--color10);
                 }
 
     
@@ -132,7 +149,7 @@ body{
     
             button{
                 
-                @include bot($blanco50);
+                @include bot(var(--color50));
                 pointer-events: none;
                 opacity: 0;
                 height: 2.5rem;
@@ -150,7 +167,7 @@ body{
             }
 
             &:hover{
-                background: $blanco50
+                background: var(--color50);
             }
     
         }
@@ -170,12 +187,10 @@ body{
                 height: 3rem;
                 margin-bottom: 1rem;
                 padding: 0.5rem;
-
-
-                background: $blanco10;
+                background: var(--color10);
 
                 input{
-                    accent-color: $negro;
+                    accent-color: var(--color);
                     flex-shrink: 0;
                     height: 1rem;
                     width: 1.5rem;
@@ -191,7 +206,7 @@ body{
 
                 p{
                     max-width: 18.125rem;
-                    color: $blanco50;
+                    color: var(--color50);
                     font-size: 1.5rem;
                     flex-grow: 1;
                     margin-right: .5rem;
